@@ -8,19 +8,19 @@ This file mirrors the proposal's execution intent and is organized as implementa
 
 ### Sprint 1 - Foundation
 
-- [ ] T1 Bootstrap monorepo structure and shared contracts.
+- [x] T1 Bootstrap monorepo structure and shared contracts.
   - Owner: QA/DevOps
   - Dependencies: none
-  - Requirements: REQ-SCP-001, REQ-SCP-002, REQ-SCP-003, REQ-SCP-004
+  - Requirements: REQ-ENG-001, REQ-ENG-002, REQ-ENG-003, REQ-ENG-004
   - Done when: CI runs all workspaces; base docs and hooks exist.
 
-- [ ] T2 Implement API Gateway auth context.
+- [x] T2 Implement API Gateway auth context.
   - Owner: Entitlements/Auth
   - Dependencies: T1
-  - Requirements: REQ-FN-023, REQ-SEC-005, REQ-SEC-008
+  - Requirements: REQ-SEC-005, REQ-FN-025
   - Scope: `authenticateRequest`, `authorizeRole`, `attachRequestContext`
 
-- [ ] T3 Create core schema and migrations.
+- [x] T3 Create core schema and migrations.
   - Owner: Backend Core
   - Dependencies: T1
   - Requirements: REQ-DATA-001, REQ-DATA-002, REQ-DATA-003, REQ-DATA-004, REQ-DATA-005, REQ-DATA-006, REQ-DATA-007, REQ-DATA-008
