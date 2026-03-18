@@ -3,6 +3,7 @@
 Source of truth: `PROJECT_PROPOSAL.md`
 
 ID convention:
+- `REQ-ENG-*`: engineering foundation
 - `REQ-SCP-*`: scope
 - `REQ-FN-*`: functional
 - `REQ-SEC-*`: security
@@ -11,6 +12,13 @@ ID convention:
 - `REQ-CONF-*`: proof conflict and re-submission
 - `REQ-ENV-*`: environment controls
 - `REQ-QLT-*`: quality and success criteria
+
+## 0. Engineering Foundation Requirements
+
+- [REQ-ENG-001] The repository SHALL be organized as a Node.js workspace monorepo with isolated app/package boundaries.
+- [REQ-ENG-002] CI SHALL execute lint, test, and build checks for all workspaces on pull requests and pushes to default branch.
+- [REQ-ENG-003] The repository SHALL provide pre-commit quality hooks for local lint/test validation.
+- [REQ-ENG-004] The repository SHALL include developer bootstrap documentation with setup and validation commands.
 
 ## 1. Product Scope
 

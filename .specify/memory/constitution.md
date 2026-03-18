@@ -1,50 +1,49 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# SafeCode Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Security-First by Default
+- All authn/authz paths SHALL fail closed.
+- JWT-based access control SHALL verify cryptographic signature and critical claims before trust.
+- Secrets SHALL be environment-scoped and never hardcoded.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Contract-Driven Interfaces
+- Public service and package interfaces SHALL use explicit request/response contracts.
+- Error responses SHALL use the standardized shape (`code`, `message`, `requestId`, `timestamp`).
+- State transitions SHALL be deterministic and represented in code and tests.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Verifiable Delivery
+- Every merged task SHALL include automated validation at an appropriate level (unit/integration/e2e).
+- CI SHALL run lint, test, and build for all workspaces.
+- Changes without executable validation evidence SHALL NOT be marked complete.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Observability and Auditability
+- Sensitive operations SHALL emit auditable events with actor and request context.
+- Services SHALL provide health and metrics endpoints before release readiness.
+- Logs SHALL include request correlation identifiers.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Simplicity and Scope Discipline
+- Implement the smallest change that satisfies current requirements.
+- Avoid speculative abstractions and out-of-scope features.
+- Prefer clear, maintainable code over clever solutions.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Delivery Constraints
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- Runtime baseline: Node.js 20+.
+- Monorepo baseline: workspace-aware lint/test/build scripts.
+- Data baseline: schema changes MUST be migration-backed and reversible in development.
+- Security baseline: high-risk changes MUST include threat-aware review notes.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Workflow and Quality Gates
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Use feature branches named `NNN-short-description` for spec workflows.
+- Keep `spec/Requirements.md`, `spec/Design.md`, and `spec/Task.md` synchronized with implementation.
+- A task can be checked complete only when code, validation, and requirement mapping are all aligned.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution overrides conflicting local workflow preferences.
+- Amendments require updating this file and documenting rationale in repository history.
+- Compliance is verified during implementation reviews and spec analysis.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-03-18 | **Last Amended**: 2026-03-18
